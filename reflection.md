@@ -7,16 +7,16 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
-
+Answer: Negative numbers were allowed and only one game is allowed
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| | | | | say guess can't be negative, allowed negative numbers, no error
+| | | | | click the new game button, unable to start a new game
+| | | | | entered 101, message that says guess is outside of range
 
 ---
 

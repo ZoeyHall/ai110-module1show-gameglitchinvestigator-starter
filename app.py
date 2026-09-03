@@ -26,6 +26,9 @@ def parse_guess(raw: str):
     except Exception:
         return False, None, "That is not a number."
 
+    if value < 0:
+        raise ValueError("Guess cannot be negative.")
+
     return True, value, None
 
 
@@ -133,7 +136,9 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.history = []
     st.success("New game started.")
     st.rerun()
 
@@ -147,7 +152,10 @@ if st.session_state.status != "playing":
 if submit:
     st.session_state.attempts += 1
 
-    ok, guess_int, err = parse_guess(raw_guess)
+    try:
+        ok, guess_int, err = parse_guess(raw_guess)
+    except ValueError as exc:
+        ok, guess_int, err = False, None, str(exc)
 
     if not ok:
         st.session_state.history.append(raw_guess)

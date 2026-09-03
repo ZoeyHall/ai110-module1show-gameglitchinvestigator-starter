@@ -10,15 +10,17 @@
 
 **What task did you give the agent?**
 
-<!-- Describe the goal you asked the agent to accomplish -->
+<!-- Describe the goal you asked the agent to accomplish --> in logic_utils.py, I told the agent the guess button doesn't work after clicking the new game button
 
 **What did the agent do?**
 
-<!-- List the steps the agent took (files edited, commands run, etc.) -->
+<!-- List the steps the agent took (files edited, commands run, etc.) --> status = "playing" — the actual fix for the dead Submit button.
+history = [] — otherwise the new game shows the previous game's guesses in the debug panel.
+randint(1, 100) → randint(low, high) — New Game ignored the difficulty range, so a new "Easy" game (range 1–20) could pick a secret up to 100 that you can't reach.
 
 **What did you have to verify or fix manually?**
 
-<!-- Describe anything the agent got wrong or that required human review -->
+<!-- Describe anything the agent got wrong or that required human review --> Nothing
 
 ---
 
